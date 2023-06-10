@@ -2,7 +2,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CILabTest {
 
@@ -20,12 +20,27 @@ public class CILabTest {
 
     @Test
     public void detectCapitalUseTest1() {
-       fail("Not yet implemented");
-
+        myString.setString("USA");
+        CILab str = new CILab();
+        str.setString(myString.getString());
+        assertTrue(str.detectCapitalUse());
     }
     @Test
     public void detectCapitalUseTest2() {
-        fail("Not yet implemented");
+        myString.setString("leetcode");
+        assertTrue(myString.detectCapitalUse());
+    }
+
+    @Test
+    public void detectCapitalUseTest3() {
+        myString.setString("Google");
+        assertTrue(myString.detectCapitalUse());
+    }
+
+    @Test
+    public void detectCapitalUseTest4() {
+        myString.setString("hunkaHunka");
+        assertFalse(myString.detectCapitalUse());
     }
 
 
